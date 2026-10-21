@@ -1,0 +1,5 @@
+bundle:
+  name: finrecon-databricks
+
+workspace:
+  host: https://dbc-00bb2099-93be.cloud.databricks.com
