@@ -1,6 +1,8 @@
 # Databricks notebook source
-
-from networkx import display
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 from pyspark.sql import functions as F
 
 # COMMAND ----------
