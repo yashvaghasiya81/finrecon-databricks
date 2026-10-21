@@ -1,6 +1,5 @@
 # Databricks notebook source
 
-from networkx import display
 from pyspark.sql import functions as F
 
 # COMMAND ----------
@@ -45,7 +44,6 @@ for file_name in csv_files:
     print("Sample records:")
     display(df.limit(5))
 
-
     
 # COMMAND ----------
 
@@ -85,4 +83,3 @@ for file_name, table_name in datasets.items():
     print(f"Rows loaded: {row_count}")
 
     display(spark.table(full_table_name).limit(5))
-    
