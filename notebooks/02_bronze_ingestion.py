@@ -1,5 +1,8 @@
 # Databricks notebook source
-
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 from pyspark.sql import functions as F
 
 # COMMAND ----------
@@ -12,10 +15,13 @@ print("FinRecon - Bronze Ingestion")
 print(f"Source path: {SOURCE_PATH}")
 print(f"Target schema: {CATALOG}.{SCHEMA}")
 
-
 # COMMAND ----------
 
-SOURCE_PATH = "/Volumes/workspace/finrecon/source_files"
+source_path = "/Volumes/workspace/finrecon/source_files"
+
+display(dbutils.fs.ls(source_path))
+
+# COMMAND ----------
 
 csv_files = [
     "payment_ledger.csv",
