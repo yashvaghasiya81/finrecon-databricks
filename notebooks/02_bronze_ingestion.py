@@ -46,42 +46,5 @@ for file_name in csv_files:
     display(df.limit(5))
 
     
-# COMMAND ----------
 
-from pyspark.sql import functions as F
-
-datasets = {
-    "payment_ledger.csv": "bronze_payment_ledger",
-    "gateway_settlements.csv": "bronze_gateway_settlements",
-    "bank_statements.csv": "bronze_bank_statements",
-    "fee_schedule.csv": "bronze_fee_schedule",
-}
-
-for file_name, table_name in datasets.items():
-    file_path = f"{SOURCE_PATH}/{file_name}"
-    full_table_name = f"{CATALOG}.{SCHEMA}.{table_name}"
-
-    print(f"Processing: {file_name}")
-
-    df = (
-        spark.read
-        .option("header", True)
-        .option("inferSchema", True)
-        .csv(file_path)
-    )
-
-    (
-        df.write
-        .format("delta")
-        .mode("overwrite")
-        .option("overwriteSchema", "true")
-        .saveAsTable(full_table_name)
-    )
-
-    row_count = spark.table(full_table_name).count()
-
-    print(f"Created table: {full_table_name}")
-    print(f"Rows loaded: {row_count}")
-
-    display(spark.table(full_table_name).limit(5))
     
