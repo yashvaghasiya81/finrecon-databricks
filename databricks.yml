@@ -1,5 +1,9 @@
+
 bundle:
   name: finrecon-databricks
+
+include:
+  - resources/*.yml
 
 workspace:
   host: https://dbc-00bb2099-93be.cloud.databricks.com

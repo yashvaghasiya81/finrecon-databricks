@@ -1,0 +1,14 @@
+
+resources:
+  jobs:
+    finrecon_environment_check:
+      name: finrecon-environment-check
+      tasks:
+        - task_key: environment_check
+          notebook_task:
+            notebook_path: ../notebooks/01_environment_check.py
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
