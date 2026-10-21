@@ -12,3 +12,15 @@ resources:
         - environment_key: default
           spec:
             environment_version: "4"
+  jobs:
+    finrecon_job:
+      name: finrecon-job
+      tasks:
+        - task_key: bronze_ingestion
+          notebook_task:
+            notebook_path: ../notebooks/02_bronze_ingestion.py
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "4"
