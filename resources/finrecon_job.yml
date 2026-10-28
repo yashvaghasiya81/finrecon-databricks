@@ -28,6 +28,13 @@ resources:
             notebook_path: ../notebooks/03_silver_transformations.py
           environment_key: default
 
+        - task_key: reconciliation_engine
+          depends_on:
+            - task_key: silver_transformations
+          notebook_task:
+            notebook_path: ../notebooks/04_reconciliation_engine.py
+          environment_key: default
+
       environments:
         - environment_key: default
           spec:
